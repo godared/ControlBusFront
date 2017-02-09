@@ -12,19 +12,18 @@ import {ConfirmDialogModule,GrowlModule} from 'primeng/primeng';
 import { AppComponent } from './app.component';
 import { RutaComponent } from './ruta.component';
 
+import { RutaService } from './ruta.service';
+
 @NgModule({
   declarations: [
     AppComponent,RutaComponent 
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    routing,
+    BrowserModule, FormsModule, HttpModule, routing,
     DataTableModule,SharedModule, ButtonModule,DialogModule, DataListModule,
     OverlayPanelModule,ConfirmDialogModule,GrowlModule
   ],
-  providers: [],
+  providers: [RutaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
