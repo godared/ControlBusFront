@@ -14,7 +14,15 @@ export class RutaService {
                 .map((r: Response) => r.json() )             
                 .catch(this.handleError);
 	}
+    
+      getAllRutaNew() {
+        return this.http
+                .get(this.baseUrl+ "new") 
+                .map((r: Response) => r.json() )             
+                .catch(this.handleError);
+	}
     	// this could also be a private method of the component class
+		// this could also be a private method of the component class
 	handleError (error: any) {
         // log error
         // could be something more sofisticated

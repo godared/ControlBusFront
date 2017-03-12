@@ -17,6 +17,7 @@ export class RutaComponent {
     private usFechaReg:Date;
 
     private rutas:any=[];
+     private rutasNew:any=[];
     private rutasPresentar:any = [];	
     private ruta:any;
     private selectedRutaPresentar: any;
@@ -44,10 +45,19 @@ export class RutaComponent {
         );
 
     }
+    getRutaNew(){
+      this._rutaService.getAllRutaNew()
+        .subscribe(
+        data => { this.rutasNew = data;			 
+             },//lo llamo aqui xq sino le pierde el estado
+        err => { this.errorMessage = err },
+        () => this.isLoading = false
+        );
+    }
     mostrarGrillaRuta(){
       this.rutasPresentar=[];
       let _valorTipo:string="";
-      
+      this.rutasNew.RuDescripcion='hoa mundo';      
       for(let ruta of this.rutas ){
         if(ruta.EmTipo=0)
           _valorTipo="EMPRESA"
